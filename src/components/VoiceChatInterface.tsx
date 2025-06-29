@@ -1,13 +1,15 @@
-
 import { useState, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { Mic, MicOff, Send, User, Bot } from 'lucide-react';
+import { Mic, MicOff, Send, User, Bot, MessageCircle } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { useAuth } from '@/contexts/AuthContext';
+import { initializeOmnidimensionWidget } from '@/utils/omnidimensionWidget';
 
 const VoiceChatInterface = ({ selectedTimeline, onMessage, palmAnalysis }) => {
+  const { user } = useAuth();
   const [messages, setMessages] = useState([]);
   const [isListening, setIsListening] = useState(false);
   const [textInput, setTextInput] = useState('');
@@ -107,6 +109,24 @@ const VoiceChatInterface = ({ selectedTimeline, onMessage, palmAnalysis }) => {
     }
   };
 
+  const handleTalkToAlternateSelf = () => {
+    const userData = {
+      user_id: user?.id || "user_001",
+      user_name: user?.user_metadata?.full_name || "Mehul Agarwal",
+      palm_heart_line_trait: palmAnalysis?.heart_line?.trait || "Curved and deep — intense emotional sensitivity",
+      user_regret: "Not learning guitar", // This could be from user profile
+      user_passion: "Helping others find clarity", // This could be from user profile
+      timeline_title: selectedTimeline || "The Artist You"
+    };
+
+    initializeOmnidimensionWidget(userData);
+    
+    toast({
+      title: "Connecting to your alternate self...",
+      description: "The chat widget will appear shortly",
+    });
+  };
+
   return (
     <section className="py-20 px-4">
       <div className="max-w-4xl mx-auto">
@@ -114,9 +134,19 @@ const VoiceChatInterface = ({ selectedTimeline, onMessage, palmAnalysis }) => {
           <h2 className="text-4xl font-bold text-purple-200 mb-4">
             Speak with {selectedTimeline}
           </h2>
-          <p className="text-purple-300/80 text-lg">
+          <p className="text-purple-300/80 text-lg mb-6">
             Ask questions about your alternate life path
           </p>
+          
+          {/* Talk to Alternate Self Button */}
+          <Button
+            onClick={handleTalkToAlternateSelf}
+            size="lg"
+            className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white px-8 py-4 text-lg font-semibold rounded-full glow-gold transition-all duration-300 hover:scale-105 mb-8"
+          >
+            <MessageCircle className="w-5 h-5 mr-2" />
+            Talk to My Alternate Self
+          </Button>
         </div>
 
         <Card className="bg-card/50 backdrop-blur-sm border-purple-500/20">
