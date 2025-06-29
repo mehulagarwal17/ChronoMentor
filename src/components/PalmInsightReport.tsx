@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
@@ -62,18 +63,18 @@ const PalmInsightReport = ({ analysis }) => {
   ];
 
   return (
-    <section className="py-12 md:py-20 px-4 md:px-6">
-      <div className="max-w-xs sm:max-w-md md:max-w-4xl lg:max-w-6xl mx-auto">
-        <div className="text-center mb-8 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-purple-200 mb-3 md:mb-4">
+    <section className="py-20 px-4">
+      <div className="max-w-6xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-purple-200 mb-4">
             Your Palm Insights
           </h2>
-          <p className="text-purple-300/80 text-base md:text-lg">
+          <p className="text-purple-300/80 text-lg">
             Discover the secrets written in your hands
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {lineData.map((line) => {
             const Icon = line.icon;
             const isOpen = openCards[line.id];
@@ -82,21 +83,21 @@ const PalmInsightReport = ({ analysis }) => {
               <Collapsible key={line.id} open={isOpen} onOpenChange={() => toggleCard(line.id)}>
                 <Card className={`${line.bgColor} ${line.borderColor} border backdrop-blur-sm transition-all duration-300 hover:glow`}>
                   <CollapsibleTrigger className="w-full">
-                    <CardHeader className="text-left p-4 md:p-6">
+                    <CardHeader className="text-left">
                       <div className="flex items-center justify-between">
-                        <div className="flex items-center space-x-2 md:space-x-3">
-                          <div className={`p-1.5 md:p-2 rounded-full ${line.bgColor} ${line.borderColor} border`}>
-                            <Icon className={`w-3 h-3 md:w-5 md:h-5 ${line.color}`} />
+                        <div className="flex items-center space-x-3">
+                          <div className={`p-2 rounded-full ${line.bgColor} ${line.borderColor} border`}>
+                            <Icon className={`w-5 h-5 ${line.color}`} />
                           </div>
                           <div>
-                            <CardTitle className="text-purple-200 text-sm md:text-base">{line.title}</CardTitle>
-                            <CardDescription className="text-purple-300/60 text-xs md:text-sm">
+                            <CardTitle className="text-purple-200">{line.title}</CardTitle>
+                            <CardDescription className="text-purple-300/60">
                               {line.subtitle}
                             </CardDescription>
                           </div>
                         </div>
                         <ChevronDown 
-                          className={`w-4 h-4 md:w-5 md:h-5 text-purple-400 transition-transform duration-200 ${
+                          className={`w-5 h-5 text-purple-400 transition-transform duration-200 ${
                             isOpen ? 'rotate-180' : ''
                           }`} 
                         />
@@ -105,7 +106,7 @@ const PalmInsightReport = ({ analysis }) => {
                       {/* Preview trait when collapsed */}
                       {!isOpen && (
                         <div className="mt-2">
-                          <span className={`inline-block px-2 md:px-3 py-1 rounded-full text-xs md:text-sm font-medium ${line.bgColor} ${line.color} border ${line.borderColor}`}>
+                          <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium ${line.bgColor} ${line.color} border ${line.borderColor}`}>
                             {line.data.trait}
                           </span>
                         </div>
@@ -114,18 +115,18 @@ const PalmInsightReport = ({ analysis }) => {
                   </CollapsibleTrigger>
                   
                   <CollapsibleContent>
-                    <CardContent className="pt-0 p-4 md:p-6">
-                      <div className="space-y-3 md:space-y-4">
+                    <CardContent className="pt-0">
+                      <div className="space-y-4">
                         <div>
-                          <h4 className="font-semibold text-purple-200 mb-2 text-sm md:text-base">Primary Trait</h4>
-                          <span className={`inline-block px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium ${line.bgColor} ${line.color} border ${line.borderColor} glow`}>
+                          <h4 className="font-semibold text-purple-200 mb-2">Primary Trait</h4>
+                          <span className={`inline-block px-4 py-2 rounded-full text-sm font-medium ${line.bgColor} ${line.color} border ${line.borderColor} glow`}>
                             {line.data.trait}
                           </span>
                         </div>
                         
                         <div>
-                          <h4 className="font-semibold text-purple-200 mb-2 text-sm md:text-base">Insight</h4>
-                          <p className="text-purple-300/80 leading-relaxed text-sm md:text-base">
+                          <h4 className="font-semibold text-purple-200 mb-2">Insight</h4>
+                          <p className="text-purple-300/80 leading-relaxed">
                             {line.data.description}
                           </p>
                         </div>
