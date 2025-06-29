@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
@@ -94,45 +93,50 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="mystic-gradient min-h-screen">
-        {/* User Menu */}
-        <div className="absolute top-4 right-4 z-10">
-          <Button
-            onClick={signOut}
-            variant="outline"
-            className="bg-white/10 border-white/20 text-white hover:bg-white/20"
-          >
-            Sign Out
-          </Button>
-        </div>
+        {/* Header with Sign Out button - Added proper spacing and positioning */}
+        <header className="relative z-50 w-full">
+          <div className="absolute top-6 right-6 md:top-8 md:right-8">
+            <Button
+              onClick={signOut}
+              variant="outline"
+              className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm shadow-lg"
+            >
+              Sign Out
+            </Button>
+          </div>
+        </header>
 
-        <HeroSection onUploadClick={() => document.getElementById('palm-upload')?.scrollIntoView({ behavior: 'smooth' })} />
-        
-        <div id="palm-upload">
-          <PalmUploadSection onPalmUpload={handlePalmUpload} />
+        {/* Main content with proper top padding to avoid overlap */}
+        <div className="pt-20 md:pt-24">
+          <HeroSection onUploadClick={() => document.getElementById('palm-upload')?.scrollIntoView({ behavior: 'smooth' })} />
+          
+          <div id="palm-upload">
+            <PalmUploadSection onPalmUpload={handlePalmUpload} />
+          </div>
+          
+          {palmUploaded && palmAnalysis && (
+            <>
+              <PalmInsightReport analysis={palmAnalysis} />
+              
+              <TimelineSwitcher 
+                selectedTimeline={selectedTimeline}
+                onTimelineSelect={setSelectedTimeline}
+              />
+              
+              <VoiceChatInterface 
+                selectedTimeline={selectedTimeline}
+                onMessage={handleChatMessage}
+                palmAnalysis={palmAnalysis}
+              />
+              
+              <SaveReflectSection 
+                chatHistory={chatHistory}
+                savedInsights={savedInsights}
+                onSaveInsight={handleSaveInsight}
+              />
+            </>
+          )}
         </div>
-        
-        {palmUploaded && palmAnalysis && (
-          <>
-            <PalmInsightReport analysis={palmAnalysis} />
-            
-            <TimelineSwitcher 
-              selectedTimeline={selectedTimeline}
-              onTimelineSelect={setSelectedTimeline}
-            />
-            
-            <VoiceChatInterface 
-              selectedTimeline={selectedTimeline}
-              onMessage={handleChatMessage}
-              palmAnalysis={palmAnalysis}
-            />
-            
-            <SaveReflectSection 
-              chatHistory={chatHistory}
-              savedInsights={savedInsights}
-              onSaveInsight={handleSaveInsight}
-            />
-          </>
-        )}
       </div>
     </div>
   );

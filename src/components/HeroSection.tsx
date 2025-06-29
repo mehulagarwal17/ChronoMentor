@@ -1,10 +1,9 @@
-
 import { Button } from '@/components/ui/button';
-import { Hand, Sparkles } from 'lucide-react';
+import { Hand, Sparkles, ChevronDown } from 'lucide-react';
 
 const HeroSection = ({ onUploadClick }) => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
+    <section className="relative min-h-screen flex flex-col items-center justify-center px-4 overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 left-10 w-32 h-32 rounded-full bg-purple-500/10 animate-pulse-glow"></div>
@@ -12,7 +11,7 @@ const HeroSection = ({ onUploadClick }) => {
         <div className="absolute top-1/2 left-1/4 w-24 h-24 rounded-full bg-gold/20 animate-pulse-glow" style={{ animationDelay: '1s' }}></div>
       </div>
       
-      <div className="relative z-10 text-center max-w-4xl mx-auto">
+      <div className="relative z-10 text-center max-w-4xl mx-auto flex-1 flex flex-col justify-center">
         {/* Main headline */}
         <div className="mb-8">
           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-purple-300 via-pink-300 to-blue-300 bg-clip-text text-transparent mb-4 animate-fade-in">
@@ -45,7 +44,7 @@ const HeroSection = ({ onUploadClick }) => {
         </p>
         
         {/* CTA Button */}
-        <div className="animate-fade-in" style={{ animationDelay: '2s' }}>
+        <div className="animate-fade-in mb-8" style={{ animationDelay: '2s' }}>
           <Button 
             onClick={onUploadClick}
             size="lg"
@@ -54,6 +53,16 @@ const HeroSection = ({ onUploadClick }) => {
             <Hand className="w-5 h-5 mr-2" />
             Upload Your Palm
           </Button>
+        </div>
+
+        {/* Continue exploring text with down arrow */}
+        <div className="animate-fade-in" style={{ animationDelay: '2.5s' }}>
+          <p className="text-purple-300/70 text-sm mb-4">
+            Continue exploring your alternative life paths
+          </p>
+          <div className="flex justify-center">
+            <ChevronDown className="w-6 h-6 text-purple-400 animate-bounce" />
+          </div>
         </div>
         
         {/* Floating elements */}
