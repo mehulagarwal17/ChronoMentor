@@ -88,8 +88,8 @@ const Index = () => {
     return (
       <div className="min-h-screen mystic-gradient flex items-center justify-center">
         <div className="text-center">
-          <div className="w-16 h-16 border-4 border-violet-500 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
-          <div className="text-purple-200 text-xl font-light">Connecting to the cosmic realm...</div>
+          <div className="w-16 h-16 border-4 border-violet-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="text-white text-xl font-light drop-shadow-lg">Connecting to the cosmic realm...</div>
         </div>
       </div>
     );
@@ -114,35 +114,37 @@ const Index = () => {
         <div className="text-center max-w-2xl relative z-10">
           <div className="mb-8">
             <div className="text-6xl mb-4 animate-float">🔮</div>
-            <h1 className="text-5xl md:text-6xl font-serif font-bold bg-gradient-to-r from-violet-300 via-purple-300 to-blue-300 bg-clip-text text-transparent mb-4 animate-shimmer">
-              ChronoMentor
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white drop-shadow-2xl mb-4">
+              <span className="bg-gradient-to-r from-violet-200 via-purple-200 to-blue-200 bg-clip-text text-transparent animate-shimmer">
+                ChronoMentor
+              </span>
             </h1>
-            <p className="text-purple-200 text-lg mb-8 font-light italic">
+            <p className="text-white/90 text-lg mb-8 font-light italic drop-shadow-lg">
               Discover alternate versions of your life through ancient palmistry
             </p>
           </div>
           
           <Button
             onClick={() => navigate('/auth')}
-            className="bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 text-white px-10 py-4 text-lg font-semibold rounded-full mystical-glow transition-all duration-500 hover:scale-110 particle-burst"
+            className="bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 text-white px-10 py-4 text-lg font-semibold rounded-full mystical-glow transition-all duration-500 hover:scale-110 particle-burst shadow-2xl"
           >
             <span className="flex items-center">
               ✨ Begin Your Mystical Journey
             </span>
           </Button>
           
-          <div className="mt-8 text-purple-300/60 text-sm">
+          <div className="mt-8 text-white/70 text-sm drop-shadow-md">
             <p>Join thousands who've discovered their alternate selves</p>
           </div>
         </div>
 
         {/* Mystical footer */}
         <footer className="absolute bottom-0 left-0 right-0 p-6 bg-black/20 backdrop-blur-sm border-t border-white/10">
-          <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 text-purple-300/70 text-sm">
-            <a href="#" className="hover:text-purple-200 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-purple-200 transition-colors">About</a>
-            <a href="#" className="hover:text-purple-200 transition-colors">Source</a>
-            <a href="#" className="hover:text-purple-200 transition-colors">Connect with the Oracle</a>
+          <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 text-white/60 text-sm">
+            <a href="#" className="hover:text-white/80 transition-colors">Privacy</a>
+            <a href="#" className="hover:text-white/80 transition-colors">About</a>
+            <a href="#" className="hover:text-white/80 transition-colors">Source</a>
+            <a href="#" className="hover:text-white/80 transition-colors">Connect with the Oracle</a>
           </div>
         </footer>
       </div>
@@ -202,14 +204,14 @@ const Index = () => {
         {landingStarted && (
           <footer className="mt-20 p-8 bg-black/20 backdrop-blur-sm border-t border-white/10">
             <div className="max-w-6xl mx-auto text-center">
-              <div className="text-purple-300/70 text-sm mb-4">
+              <div className="text-white/70 text-sm mb-4">
                 <p className="italic">"The future belongs to those who believe in the beauty of their dreams."</p>
               </div>
-              <div className="flex flex-wrap justify-center gap-6 text-purple-300/60 text-sm">
-                <a href="#" className="hover:text-purple-200 transition-colors">Privacy</a>
-                <a href="#" className="hover:text-purple-200 transition-colors">About</a>
-                <a href="#" className="hover:text-purple-200 transition-colors">Source</a>
-                <a href="#" className="hover:text-purple-200 transition-colors">Connect with the Oracle</a>
+              <div className="flex flex-wrap justify-center gap-6 text-white/60 text-sm">
+                <a href="#" className="hover:text-white/80 transition-colors">Privacy</a>
+                <a href="#" className="hover:text-white/80 transition-colors">About</a>
+                <a href="#" className="hover:text-white/80 transition-colors">Source</a>
+                <a href="#" className="hover:text-white/80 transition-colors">Connect with the Oracle</a>
               </div>
             </div>
           </footer>
