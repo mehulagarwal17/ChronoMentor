@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { Button } from '@/components/ui/button';
+import { ChevronDown } from 'lucide-react';
 import HeroSection from '../components/HeroSection';
 import PalmUploadSection from '../components/PalmUploadSection';
 import PalmInsightReport from '../components/PalmInsightReport';
@@ -63,6 +64,13 @@ const Index = () => {
       timestamp: new Date(),
       timeline: selectedTimeline
     }]);
+  };
+
+  const scrollToPalmUpload = () => {
+    document.getElementById('palm-upload')?.scrollIntoView({ 
+      behavior: 'smooth',
+      block: 'start'
+    });
   };
 
   if (loading) {
@@ -147,6 +155,34 @@ const Index = () => {
             <p className="text-purple-200 text-lg md:text-xl mb-8">
               Continue exploring your alternate life paths
             </p>
+            
+            {/* Mystical Down Arrow */}
+            <div className="flex justify-center">
+              <button
+                onClick={scrollToPalmUpload}
+                className="group flex flex-col items-center space-y-2 text-purple-300/80 hover:text-purple-200 transition-all duration-300 cursor-pointer"
+                aria-label="Scroll to palm upload section"
+              >
+                <div className="relative">
+                  {/* Glowing orb behind arrow */}
+                  <div className="absolute inset-0 w-12 h-12 bg-gradient-to-r from-purple-500/20 to-blue-500/20 rounded-full blur-lg group-hover:blur-xl transition-all duration-300"></div>
+                  
+                  {/* Main arrow with mystical styling */}
+                  <div className="relative w-12 h-12 rounded-full bg-gradient-to-r from-purple-600/30 to-blue-600/30 border border-purple-400/30 flex items-center justify-center group-hover:border-purple-300/50 transition-all duration-300 backdrop-blur-sm">
+                    <ChevronDown className="w-6 h-6 text-purple-300 group-hover:text-purple-200 animate-bounce" />
+                  </div>
+                  
+                  {/* Sparkle effects */}
+                  <div className="absolute -top-1 -right-1 w-2 h-2 bg-yellow-400 rounded-full animate-pulse opacity-60"></div>
+                  <div className="absolute -bottom-1 -left-1 w-1.5 h-1.5 bg-blue-400 rounded-full animate-pulse opacity-40" style={{ animationDelay: '0.5s' }}></div>
+                </div>
+                
+                {/* Subtle text hint */}
+                <span className="text-xs font-light opacity-60 group-hover:opacity-80 transition-opacity duration-300">
+                  Begin your journey
+                </span>
+              </button>
+            </div>
           </div>
         </div>
         
