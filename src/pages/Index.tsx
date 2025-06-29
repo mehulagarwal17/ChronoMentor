@@ -68,33 +68,66 @@ const Index = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4">
-        <div className="text-white text-lg md:text-xl text-center">Loading...</div>
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-violet-400 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+          <div className="text-white text-xl font-light drop-shadow-lg">Connecting to the cosmic realm...</div>
+        </div>
       </div>
     );
   }
 
   if (!user) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4">
-        <div className="text-center max-w-sm md:max-w-md lg:max-w-lg">
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">ChronoMentor</h1>
-          <p className="text-purple-200 mb-6 md:mb-8 text-sm md:text-base">Discover alternate versions of your life through palmistry</p>
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4 relative overflow-hidden">
+        {/* Background stars */}
+        {[...Array(30)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-1 bg-white rounded-full animate-twinkle"
+            style={{
+              left: `${Math.random() * 100}%`,
+              top: `${Math.random() * 100}%`,
+              animationDelay: `${Math.random() * 3}s`,
+            }}
+          />
+        ))}
+        
+        <div className="text-center max-w-2xl relative z-10">
+          <div className="mb-8">
+            <div className="text-6xl mb-4 animate-float">🔮</div>
+            <h1 className="text-5xl md:text-6xl font-serif font-bold text-white drop-shadow-2xl mb-4">
+              <span className="bg-gradient-to-r from-violet-200 via-purple-200 to-blue-200 bg-clip-text text-transparent animate-shimmer">
+                ChronoMentor
+              </span>
+            </h1>
+            <p className="text-white/90 text-lg mb-8 font-light italic drop-shadow-lg">
+              Discover alternate versions of your life through ancient palmistry
+            </p>
+          </div>
+          
           <Button
             onClick={() => navigate('/auth')}
-            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 md:px-8 py-2 md:py-3 text-base md:text-lg rounded-full w-full md:w-auto"
+            className="bg-gradient-to-r from-violet-600 via-purple-600 to-blue-600 hover:from-violet-700 hover:to-blue-700 text-white px-10 py-4 text-lg font-semibold rounded-full mystical-glow transition-all duration-500 hover:scale-110 particle-burst shadow-2xl"
           >
-            Start Your Journey
+            <span className="flex items-center">
+              ✨ Begin Your Mystical Journey
+            </span>
           </Button>
+          
+          <div className="mt-8 text-white/70 text-sm drop-shadow-md">
+            <p>Join thousands who've discovered their alternate selves</p>
+          </div>
         </div>
       </div>
     );
   }
 
+  // Authenticated user experience - show main app content immediately
   return (
     <div className="min-h-screen bg-background">
       <div className="mystic-gradient min-h-screen">
         {/* Responsive User Menu */}
-        <div className="absolute top-4 md:top-6 right-4 md:right-6 z-10">
+        <div className="absolute top-4 md:top-6 right-4 md:right-6 z-20">
           <Button
             onClick={signOut}
             variant="outline"
@@ -105,11 +138,19 @@ const Index = () => {
           </Button>
         </div>
 
-        {/* Add responsive padding to prevent overlap */}
-        <div className="pt-16 md:pt-20">
-          <HeroSection onUploadClick={() => document.getElementById('palm-upload')?.scrollIntoView({ behavior: 'smooth' })} />
+        {/* Welcome section for authenticated users */}
+        <div className="pt-20 md:pt-24 pb-8 md:pb-12 px-4 md:px-6">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-3xl md:text-5xl font-bold text-white mb-4">
+              Welcome back to ChronoMentor
+            </h1>
+            <p className="text-purple-200 text-lg md:text-xl mb-8">
+              Continue exploring your alternate life paths
+            </p>
+          </div>
         </div>
         
+        {/* Main app content */}
         <div id="palm-upload">
           <PalmUploadSection onPalmUpload={handlePalmUpload} />
         </div>
@@ -136,6 +177,21 @@ const Index = () => {
             />
           </>
         )}
+
+        {/* Footer */}
+        <footer className="mt-20 p-8 bg-black/20 backdrop-blur-sm border-t border-white/10">
+          <div className="max-w-6xl mx-auto text-center">
+            <div className="text-white/70 text-sm mb-4">
+              <p className="italic">"The future belongs to those who believe in the beauty of their dreams."</p>
+            </div>
+            <div className="flex flex-wrap justify-center gap-6 text-white/60 text-sm">
+              <a href="#" className="hover:text-white/80 transition-colors">Privacy</a>
+              <a href="#" className="hover:text-white/80 transition-colors">About</a>
+              <a href="#" className="hover:text-white/80 transition-colors">Source</a>
+              <a href="#" className="hover:text-white/80 transition-colors">Connect with the Oracle</a>
+            </div>
+          </div>
+        </footer>
       </div>
     </div>
   );
