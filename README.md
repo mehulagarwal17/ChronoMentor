@@ -1,73 +1,43 @@
-# Welcome to your Lovable project
+# 🔮 ChronoMentor: Palmistry Edition ✋✨
 
-## Project info
+> _“Discover alternate versions of your life through the lines written on your palm.”_
 
-**URL**: https://lovable.dev/projects/cde842b5-7d64-41ca-9361-57f44fb70b30
+ChronoMentor is an AI-powered mystic voice assistant that blends the ancient art of palmistry with modern artificial intelligence. Upload your palm photo, share your inner questions, and speak to a voice agent that reveals the versions of you that could have been — and might still be.
 
-## How can I edit this code?
+🪞 _The Mystic Mirror awaits..._
 
-There are several ways of editing your application.
+## 🚀 Deployed Link 
 
-**Use Lovable**
+link - https://chrono-mentor.lovable.app/
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/cde842b5-7d64-41ca-9361-57f44fb70b30) and start prompting.
+## 🌟 Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- 🖼️ **Palm Image Upload** – Capture your palm and let the AI interpret your life, emotions, and patterns
+- 🧠 **AI Voice Agent (OmniDimension)** – Speak with your alternate self through a realistic astrologer voice
+- 🌌 **Dynamic Life Insights** – Get predictions, reflections, and guidance based on your palm traits
+- 🧘‍♀️ **Regret & Passion Logging** – Tell the system your inner truth for personalized alternate life stories
+- 📓 **Memory-Aware Conversations** – Remembers your past predictions and adapts in future calls
+- 🔗 **Google & GitHub Login** – Easy sign-in with social accounts
+- 🪄 **Mysterious UI/UX** – Inspired by tarot decks, nebulae, and ancient scrolls
 
-**Use your preferred IDE**
+---
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+## ⚙️ Tech Stack
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+| Frontend               | Backend / Logic              | AI / Voice Agent                            | Auth & Infra        |
+|------------------------|------------------------------|----------------------------------------------|
+| HTML/CSS + Lovable.dev | Node.js / Express (optional) | [OmniDimension.io](https://omnidimension.io) | Supabase or Firebase |
+| React (optional)       | Image AI model (optional)    | Memory variables + voice intent routing      | GitHub/Google OAuth  |
 
-Follow these steps:
+---
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+### 🧪 Local Setup 
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+git clone https://github.com/yourusername/chronomentor-palmistry-edition.git
+cd chronomentor-palmistry-edition
+npm install --legacy-peer-deps
 npm run dev
-```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/cde842b5-7d64-41ca-9361-57f44fb70b30) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
