@@ -67,8 +67,8 @@ const Index = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center">
-        <div className="text-white text-xl">Loading...</div>
+      <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4">
+        <div className="text-white text-lg md:text-xl text-center">Loading...</div>
       </div>
     );
   }
@@ -76,12 +76,12 @@ const Index = () => {
   if (!user) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4">
-        <div className="text-center max-w-md">
-          <h1 className="text-4xl font-bold text-white mb-4">ChronoMentor</h1>
-          <p className="text-purple-200 mb-8">Discover alternate versions of your life through palmistry</p>
+        <div className="text-center max-w-sm md:max-w-md lg:max-w-lg">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">ChronoMentor</h1>
+          <p className="text-purple-200 mb-6 md:mb-8 text-sm md:text-base">Discover alternate versions of your life through palmistry</p>
           <Button
             onClick={() => navigate('/auth')}
-            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 rounded-full"
+            className="bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 md:px-8 py-2 md:py-3 text-base md:text-lg rounded-full w-full md:w-auto"
           >
             Start Your Journey
           </Button>
@@ -93,19 +93,20 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="mystic-gradient min-h-screen">
-        {/* User Menu with proper spacing */}
-        <div className="absolute top-6 right-6 z-10">
+        {/* Responsive User Menu */}
+        <div className="absolute top-4 md:top-6 right-4 md:right-6 z-10">
           <Button
             onClick={signOut}
             variant="outline"
-            className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
+            size="sm"
+            className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm text-xs md:text-sm px-3 md:px-4 py-1 md:py-2"
           >
             Sign Out
           </Button>
         </div>
 
-        {/* Add padding to prevent overlap */}
-        <div className="pt-20">
+        {/* Add responsive padding to prevent overlap */}
+        <div className="pt-16 md:pt-20">
           <HeroSection onUploadClick={() => document.getElementById('palm-upload')?.scrollIntoView({ behavior: 'smooth' })} />
         </div>
         

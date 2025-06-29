@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { User, Briefcase, Heart, Compass, Palette, TreePine } from 'lucide-react';
@@ -62,18 +61,60 @@ const TimelineSwitcher = ({ selectedTimeline, onTimelineSelect }) => {
   ];
 
   return (
-    <section className="py-20 px-4">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-purple-200 mb-4">
+    <section className="py-12 md:py-20 px-4 md:px-6">
+      <div className="max-w-xs sm:max-w-md md:max-w-4xl lg:max-w-6xl mx-auto">
+        <div className="text-center mb-8 md:mb-12">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-purple-200 mb-3 md:mb-4">
             Choose Your Timeline
           </h2>
-          <p className="text-purple-300/80 text-lg">
+          <p className="text-purple-300/80 text-base md:text-lg">
             Explore different versions of your life path
           </p>
         </div>
 
-        <ScrollArea className="w-full">
+        {/* Mobile: Vertical scroll, Desktop: Horizontal scroll */}
+        <div className="md:hidden space-y-4">
+          {timelines.map((timeline) => {
+            const Icon = timeline.icon;
+            const isSelected = selectedTimeline === timeline.id;
+            
+            return (
+              <Card
+                key={timeline.id}
+                className={`cursor-pointer transition-all duration-300 hover:scale-105 ${
+                  isSelected 
+                    ? `${timeline.bgColor} ${timeline.borderColor} border-2 glow-gold` 
+                    : 'bg-card/50 border-purple-500/20 hover:bg-card/70'
+                }`}
+                onClick={() => onTimelineSelect(timeline.id)}
+              >
+                <CardContent className="p-4">
+                  <div className="flex items-start space-x-3">
+                    <div className={`p-2 rounded-full ${timeline.bgColor} ${timeline.borderColor} border`}>
+                      <Icon className={`w-5 h-5 ${timeline.color}`} />
+                    </div>
+                    <div className="flex-1">
+                      <h3 className={`font-semibold mb-1 text-sm ${isSelected ? timeline.color : 'text-purple-200'}`}>
+                        {timeline.title}
+                      </h3>
+                      <p className="text-xs text-purple-300/70 leading-relaxed">
+                        {timeline.description}
+                      </p>
+                      {isSelected && (
+                        <div className="mt-2 text-xs text-amber-400 font-medium">
+                          ✨ Currently Active
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
+
+        {/* Desktop: Horizontal scroll */}
+        <ScrollArea className="w-full hidden md:block">
           <div className="flex gap-6 pb-4 min-w-max">
             {timelines.map((timeline) => {
               const Icon = timeline.icon;
