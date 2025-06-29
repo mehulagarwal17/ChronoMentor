@@ -127,9 +127,7 @@ const Index = () => {
                 <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full animate-ping"></div>
               </div>
               <h1 className="text-6xl md:text-8xl font-serif font-bold text-white drop-shadow-2xl">
-                <span className="bg-gradient-to-r from-violet-200 via-purple-200 to-blue-200 bg-clip-text text-transparent animate-shimmer">
-                  ChronoMentor
-                </span>
+                ChronoMentor
               </h1>
               <div className="text-4xl ml-4 animate-float">🔮</div>
             </div>
