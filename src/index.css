@@ -1,7 +1,9 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Import mystical fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
 /* Mystical palmistry color scheme with purples, blues, and gold accents */
 
@@ -45,6 +47,12 @@
     --sidebar-accent-foreground: 300 15% 85%;
     --sidebar-border: 260 15% 18%;
     --sidebar-ring: 280 60% 60%;
+
+    /* Custom mystical colors */
+    --gold: 45 100% 70%;
+    --violet: 280 100% 70%;
+    --nebula-purple: 270 100% 20%;
+    --astral-blue: 240 100% 15%;
   }
 }
 
@@ -55,10 +63,15 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .font-serif {
+    font-family: 'Playfair Display', serif;
   }
 }
 
-/* Custom animations for palmistry theme */
+/* Custom animations for mystical theme */
 @layer utilities {
   .glow {
     box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
@@ -67,37 +80,141 @@
   .glow-gold {
     box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
   }
+
+  .mystical-glow {
+    box-shadow: 
+      0 0 30px rgba(139, 92, 246, 0.4),
+      0 0 60px rgba(139, 92, 246, 0.2),
+      0 0 90px rgba(139, 92, 246, 0.1);
+  }
   
   .palm-gradient {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
   
   .mystic-gradient {
-    background: linear-gradient(135deg, #4c1d95 0%, #581c87 25%, #7c3aed 50%, #a855f7 75%, #c084fc 100%);
+    background: linear-gradient(135deg, 
+      #1a0b3d 0%,    /* Deep nebula purple */
+      #2d1b69 25%,   /* Rich purple */
+      #4c1d95 50%,   /* Violet */
+      #1e1b4b 75%,   /* Deep indigo */
+      #0f172a 100%   /* Astral blue-black */
+    );
+  }
+
+  .gold {
+    color: hsl(var(--gold));
   }
 }
 
-/* Keyframes for palm scanner animation */
+/* Enhanced keyframes for mystical animations */
 @keyframes pulse-glow {
   0%, 100% { 
     opacity: 1;
     transform: scale(1);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
   }
   50% { 
-    opacity: 0.7;
+    opacity: 0.8;
     transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(139, 92, 246, 0.6);
   }
 }
 
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes orbit {
+  0% { transform: rotate(0deg) translateX(60px) rotate(0deg); }
+  100% { transform: rotate(360deg) translateX(60px) rotate(-360deg); }
+}
+
+@keyframes orbit-reverse {
+  0% { transform: rotate(0deg) translateX(50px) rotate(0deg); }
+  100% { transform: rotate(-360deg) translateX(50px) rotate(360deg); }
+}
+
+@keyframes fade-in {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 .animate-pulse-glow {
-  animation: pulse-glow 2s ease-in-out infinite;
+  animation: pulse-glow 3s ease-in-out infinite;
 }
 
 .animate-float {
-  animation: float 3s ease-in-out infinite;
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, 
+    rgba(139, 92, 246, 0.8) 0%, 
+    rgba(168, 85, 247, 1) 50%, 
+    rgba(139, 92, 246, 0.8) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.animate-orbit {
+  animation: orbit 8s linear infinite;
+}
+
+.animate-orbit-reverse {
+  animation: orbit-reverse 10s linear infinite;
+}
+
+.animate-fade-in {
+  animation: fade-in 1s ease-out forwards;
+  opacity: 0;
+}
+
+/* Particle effects */
+.particle-burst {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle-burst::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(251, 191, 36, 0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.6s ease;
+}
+
+.particle-burst:hover::before {
+  width: 200px;
+  height: 200px;
+  opacity: 0;
+}
+
+/* Responsive mystical design */
+@media (max-width: 768px) {
+  .mystical-glow {
+    box-shadow: 
+      0 0 20px rgba(139, 92, 246, 0.3),
+      0 0 40px rgba(139, 92, 246, 0.1);
+  }
 }
