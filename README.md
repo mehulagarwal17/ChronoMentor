@@ -25,10 +25,31 @@ link - https://chrono-mentor.lovable.app/
 
 ## ⚙️ Tech Stack
 
-| Frontend               | Backend / Logic              | AI / Voice Agent                            | Auth & Infra        |
-|------------------------|------------------------------|----------------------------------------------|
-| HTML/CSS + Lovable.dev | Node.js / Express (optional) | [OmniDimension.io](https://omnidimension.io) | Supabase or Firebase |
-| React (optional)       | Image AI model (optional)    | Memory variables + voice intent routing      | GitHub/Google OAuth  |
+🖥️ Frontend
+HTML/CSS – Layout and styling
+
+Lovable.dev – Visual interface builder & full-stack logic
+
+React – For advanced UI interactions or animations
+
+🧠 Backend / Logic
+Node.js / Express  – Custom backend logic if needed
+
+Image AI Model – For palm pattern recognition (e.g., with TensorFlow.js or Replicate)
+
+Memory Variables – For storing palm traits, predictions, and user data contextually
+
+🗣️ AI / Voice Agent
+OmniDimension.io – Voice assistant with memory & character tone
+
+Intent Routing – Based on palm traits, passions, and user questions
+
+🔐 Authentication & Infra
+Supabase or Firebase – For user data, storage, and session handling
+
+GitHub / Google OAuth – Seamless login/signup experience
+
+Lovable.dev Storage – Memory persistence between voice sessions
 
 ---
 
