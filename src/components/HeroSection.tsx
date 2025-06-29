@@ -1,7 +1,8 @@
+import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Hand, Sparkles, Eye, Star } from 'lucide-react';
 
-function HeroSection({ onUploadClick }) {
+const HeroSection: React.FC<{ onUploadClick: () => void }> = ({ onUploadClick }) => {
   return (
     <section className="relative min-h-screen flex items-center justify-center px-4 overflow-hidden">
       {/* Animated starfield background */}
@@ -129,6 +130,6 @@ function HeroSection({ onUploadClick }) {
       </div>
     </section>
   );
-}
+};
 
 export default HeroSection;

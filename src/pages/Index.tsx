@@ -269,7 +269,7 @@ const Index = () => {
                 <a href="#" className="hover:text-white/80 transition-colors">Connect with the Oracle</a>
               </div>
             </div>
-          </div>
+          </footer>
         )}
       </div>
     </div>
