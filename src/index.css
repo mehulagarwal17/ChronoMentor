@@ -3,54 +3,48 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Mystical palmistry color scheme with deep violet, mystic pink, and astral blue */
+/* Mystical palmistry color scheme with purples, blues, and gold accents */
 
 @layer base {
   :root {
-    --background: 260 50% 8%;
+    --background: 260 15% 8%;
     --foreground: 300 20% 95%;
 
-    --card: 260 40% 12%;
+    --card: 260 15% 12%;
     --card-foreground: 300 15% 92%;
 
-    --popover: 260 40% 12%;
+    --popover: 260 15% 12%;
     --popover-foreground: 300 15% 92%;
 
-    --primary: 280 100% 60%;
+    --primary: 280 60% 60%;
     --primary-foreground: 300 20% 95%;
 
-    --secondary: 260 30% 18%;
+    --secondary: 260 15% 18%;
     --secondary-foreground: 300 15% 88%;
 
-    --muted: 260 30% 18%;
+    --muted: 260 15% 18%;
     --muted-foreground: 270 10% 65%;
 
-    --accent: 320 100% 71%;
-    --accent-foreground: 260 50% 8%;
+    --accent: 45 80% 65%;
+    --accent-foreground: 260 15% 8%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 260 30% 20%;
-    --input: 260 30% 20%;
-    --ring: 280 100% 60%;
+    --border: 260 15% 20%;
+    --input: 260 15% 20%;
+    --ring: 280 60% 60%;
 
     --radius: 0.75rem;
 
-    --sidebar-background: 260 40% 10%;
+    --sidebar-background: 260 15% 10%;
     --sidebar-foreground: 300 15% 88%;
-    --sidebar-primary: 280 100% 60%;
+    --sidebar-primary: 280 60% 60%;
     --sidebar-primary-foreground: 300 20% 95%;
-    --sidebar-accent: 260 30% 15%;
+    --sidebar-accent: 260 15% 15%;
     --sidebar-accent-foreground: 300 15% 85%;
-    --sidebar-border: 260 30% 18%;
-    --sidebar-ring: 280 100% 60%;
-
-    /* Custom Mystical Colors */
-    --deep-violet: #1F103F;
-    --mystic-pink: #FF6FD8;
-    --astral-blue: #4A00E0;
-    --ethereal-glow: rgba(255, 255, 255, 0.1);
+    --sidebar-border: 260 15% 18%;
+    --sidebar-ring: 280 60% 60%;
   }
 }
 
@@ -61,205 +55,29 @@
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Unbounded', sans-serif;
-    background: linear-gradient(135deg, var(--deep-violet) 0%, #2A1A5A 25%, var(--astral-blue) 75%, #1F103F 100%);
-    min-height: 100vh;
-    position: relative;
-    overflow-x: hidden;
-  }
-
-  body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-      radial-gradient(circle at 20% 30%, rgba(255, 111, 216, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 80% 70%, rgba(74, 0, 224, 0.1) 0%, transparent 50%),
-      radial-gradient(circle at 40% 80%, rgba(255, 111, 216, 0.05) 0%, transparent 50%);
-    pointer-events: none;
-    z-index: -1;
-    animation: aurora-shift 8s ease-in-out infinite alternate;
   }
 }
 
-/* Custom font classes */
-.font-cinzel {
-  font-family: 'Cinzel Decorative', serif;
-}
-
-.font-unbounded {
-  font-family: 'Unbounded', sans-serif;
-}
-
-/* Mystical animations */
-@keyframes aurora-shift {
-  0% {
-    transform: translateX(-2%) translateY(-2%) scale(1.02);
-    opacity: 0.7;
-  }
-  50% {
-    transform: translateX(1%) translateY(1%) scale(1);
-    opacity: 0.9;
-  }
-  100% {
-    transform: translateX(2%) translateY(-1%) scale(1.01);
-    opacity: 0.8;
-  }
-}
-
-@keyframes twinkle {
-  0%, 100% { 
-    opacity: 0.3;
-    transform: scale(1);
-  }
-  50% { 
-    opacity: 1;
-    transform: scale(1.2);
-  }
-}
-
-@keyframes float-gentle {
-  0%, 100% { 
-    transform: translateY(0px) rotate(0deg);
-  }
-  50% { 
-    transform: translateY(-10px) rotate(2deg);
-  }
-}
-
-@keyframes pulse-mystical {
-  0%, 100% { 
-    opacity: 0.8;
-    transform: scale(1);
-    box-shadow: 0 0 20px rgba(255, 111, 216, 0.3);
-  }
-  50% { 
-    opacity: 1;
-    transform: scale(1.05);
-    box-shadow: 0 0 40px rgba(255, 111, 216, 0.6);
-  }
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-@keyframes cosmic-glow {
-  0%, 100% {
-    box-shadow: 
-      0 0 10px rgba(255, 111, 216, 0.5),
-      0 0 20px rgba(74, 0, 224, 0.3),
-      inset 0 0 10px rgba(255, 255, 255, 0.1);
-  }
-  50% {
-    box-shadow: 
-      0 0 20px rgba(255, 111, 216, 0.8),
-      0 0 40px rgba(74, 0, 224, 0.6),
-      inset 0 0 20px rgba(255, 255, 255, 0.2);
-  }
-}
-
-/* Custom utility classes */
+/* Custom animations for palmistry theme */
 @layer utilities {
-  .text-glow {
-    text-shadow: 
-      0 0 10px rgba(255, 111, 216, 0.5),
-      0 0 20px rgba(255, 111, 216, 0.3),
-      0 0 30px rgba(255, 111, 216, 0.1);
+  .glow {
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.3);
   }
   
-  .text-glow-white {
-    text-shadow: 
-      0 0 10px rgba(255, 255, 255, 0.5),
-      0 0 20px rgba(255, 255, 255, 0.3);
+  .glow-gold {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.4);
   }
   
-  .mystical-gradient {
-    background: linear-gradient(135deg, var(--deep-violet) 0%, var(--astral-blue) 50%, var(--mystic-pink) 100%);
+  .palm-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
   
-  .aurora-gradient {
-    background: linear-gradient(135deg, 
-      rgba(31, 16, 63, 0.9) 0%, 
-      rgba(74, 0, 224, 0.8) 25%, 
-      rgba(255, 111, 216, 0.7) 50%,
-      rgba(74, 0, 224, 0.8) 75%,
-      rgba(31, 16, 63, 0.9) 100%);
-    animation: aurora-shift 6s ease-in-out infinite alternate;
-  }
-  
-  .cosmic-button {
-    background: linear-gradient(45deg, var(--mystic-pink), var(--astral-blue));
-    background-size: 200% 200%;
-    animation: shimmer 3s linear infinite;
-    transition: all 0.3s ease;
-  }
-  
-  .cosmic-button:hover {
-    animation: cosmic-glow 2s ease-in-out infinite;
-    transform: translateY(-2px) scale(1.05);
-  }
-  
-  .animate-twinkle {
-    animation: twinkle 2s ease-in-out infinite;
-  }
-  
-  .animate-float-gentle {
-    animation: float-gentle 4s ease-in-out infinite;
-  }
-  
-  .animate-pulse-mystical {
-    animation: pulse-mystical 3s ease-in-out infinite;
-  }
-  
-  .stars-bg {
-    position: relative;
-  }
-  
-  .stars-bg::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-      radial-gradient(2px 2px at 20px 30px, white, transparent),
-      radial-gradient(2px 2px at 40px 70px, rgba(255, 111, 216, 0.8), transparent),
-      radial-gradient(1px 1px at 90px 40px, rgba(74, 0, 224, 0.8), transparent),
-      radial-gradient(1px 1px at 130px 80px, white, transparent),
-      radial-gradient(2px 2px at 160px 30px, rgba(255, 111, 216, 0.6), transparent);
-    background-repeat: repeat;
-    background-size: 200px 100px;
-    animation: twinkle 4s linear infinite;
-    opacity: 0.6;
-    pointer-events: none;
-  }
-  
-  .cursor-glow {
-    cursor: none;
-  }
-  
-  .cursor-glow::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 20px;
-    height: 20px;
-    background: radial-gradient(circle, rgba(255, 111, 216, 0.6) 0%, transparent 70%);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    transition: all 0.1s ease;
+  .mystic-gradient {
+    background: linear-gradient(135deg, #4c1d95 0%, #581c87 25%, #7c3aed 50%, #a855f7 75%, #c084fc 100%);
   }
 }
 
-/* Keyframes for existing palm scanner animation */
+/* Keyframes for palm scanner animation */
 @keyframes pulse-glow {
   0%, 100% { 
     opacity: 1;
