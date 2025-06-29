@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -62,16 +61,7 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				},
-				// Custom mystical colors
-				'deep-violet': '#1F103F',
-				'mystic-pink': '#FF6FD8',
-				'astral-blue': '#4A00E0',
-				'ethereal-glow': 'rgba(255, 255, 255, 0.1)'
-			},
-			fontFamily: {
-				'cinzel': ['Cinzel Decorative', 'serif'],
-				'unbounded': ['Unbounded', 'sans-serif'],
+				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

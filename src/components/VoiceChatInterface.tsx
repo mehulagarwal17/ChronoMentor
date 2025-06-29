@@ -111,20 +111,19 @@ const VoiceChatInterface = ({ selectedTimeline, onMessage, palmAnalysis }) => {
 
   const handleTalkToAlternateSelf = () => {
     const userData = {
-      user_id: user?.id || "anonymous_user",
-      user_name: user?.user_metadata?.full_name || user?.email || "Mystical Seeker",
-      palm_heart_line_trait: palmAnalysis?.heart_line?.description || "Curved and deep — intense emotional sensitivity",
-      user_regret: user?.user_metadata?.missed_opportunity || "Not taking more creative risks",
-      user_passion: user?.user_metadata?.passion_dream_field?.join(', ') || "Exploring alternate realities and self-discovery",
-      timeline_title: selectedTimeline || "The Mystical You"
+      user_id: user?.id || "user_001",
+      user_name: user?.user_metadata?.full_name || "Mehul Agarwal",
+      palm_heart_line_trait: palmAnalysis?.heart_line?.trait || "Curved and deep — intense emotional sensitivity",
+      user_regret: "Not learning guitar", // This could be from user profile
+      user_passion: "Helping others find clarity", // This could be from user profile
+      timeline_title: selectedTimeline || "The Artist You"
     };
 
-    console.log('Initializing widget with user data:', userData);
     initializeOmnidimensionWidget(userData);
     
     toast({
       title: "Connecting to your alternate self...",
-      description: "The mystical chat portal will appear shortly",
+      description: "The chat widget will appear shortly",
     });
   };
 
