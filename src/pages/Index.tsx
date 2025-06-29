@@ -137,16 +137,6 @@ const Index = () => {
             <p>Join thousands who've discovered their alternate selves</p>
           </div>
         </div>
-
-        {/* Mystical footer */}
-        <footer className="absolute bottom-0 left-0 right-0 p-6 bg-black/20 backdrop-blur-sm border-t border-white/10">
-          <div className="max-w-4xl mx-auto flex flex-wrap justify-center gap-6 text-white/60 text-sm">
-            <a href="#" className="hover:text-white/80 transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white/80 transition-colors">About</a>
-            <a href="#" className="hover:text-white/80 transition-colors">Source</a>
-            <a href="#" className="hover:text-white/80 transition-colors">Connect with the Oracle</a>
-          </div>
-        </footer>
       </div>
     );
   }
@@ -200,7 +190,7 @@ const Index = () => {
           )}
         </div>
 
-        {/* Mystical footer for authenticated users */}
+        {/* Mystical footer only for authenticated users in main app */}
         {landingStarted && (
           <footer className="mt-20 p-8 bg-black/20 backdrop-blur-sm border-t border-white/10">
             <div className="max-w-6xl mx-auto text-center">
