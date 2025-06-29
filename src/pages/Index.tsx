@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
@@ -94,18 +93,21 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="mystic-gradient min-h-screen">
-        {/* User Menu */}
-        <div className="absolute top-4 right-4 z-10">
+        {/* User Menu with proper spacing */}
+        <div className="absolute top-6 right-6 z-10">
           <Button
             onClick={signOut}
             variant="outline"
-            className="bg-white/10 border-white/20 text-white hover:bg-white/20"
+            className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm"
           >
             Sign Out
           </Button>
         </div>
 
-        <HeroSection onUploadClick={() => document.getElementById('palm-upload')?.scrollIntoView({ behavior: 'smooth' })} />
+        {/* Add padding to prevent overlap */}
+        <div className="pt-20">
+          <HeroSection onUploadClick={() => document.getElementById('palm-upload')?.scrollIntoView({ behavior: 'smooth' })} />
+        </div>
         
         <div id="palm-upload">
           <PalmUploadSection onPalmUpload={handlePalmUpload} />
