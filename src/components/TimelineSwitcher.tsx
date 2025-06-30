@@ -1,4 +1,3 @@
-
 import { Card, CardContent } from '@/components/ui/card';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { User, Briefcase, Heart, Compass, Palette, TreePine } from 'lucide-react';
@@ -68,7 +67,7 @@ const TimelineSwitcher = ({ selectedTimeline, onTimelineSelect }) => {
   ];
 
   return (
-    <section className="py-20 px-4 mystic-gradient">
+    <section id="timelines" className="py-20 px-4 mystic-gradient">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
           <div className="mb-6">

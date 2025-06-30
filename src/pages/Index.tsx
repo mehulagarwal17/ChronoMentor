@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
@@ -5,9 +6,9 @@ import { Button } from '@/components/ui/button';
 import HeroSection from '../components/HeroSection';
 import PalmUploadSection from '../components/PalmUploadSection';
 import PalmInsightReport from '../components/PalmInsightReport';
-import VoiceChatInterface from '../components/VoiceChatInterface';
 import TimelineSwitcher from '../components/TimelineSwitcher';
 import SaveReflectSection from '../components/SaveReflectSection';
+import MysticalNavbar from '../components/MysticalNavbar';
 
 const Index = () => {
   const { user, signOut, loading } = useAuth();
@@ -15,7 +16,6 @@ const Index = () => {
   const [palmUploaded, setPalmUploaded] = useState(false);
   const [palmAnalysis, setPalmAnalysis] = useState(null);
   const [selectedTimeline, setSelectedTimeline] = useState('Creative Me');
-  const [chatHistory, setChatHistory] = useState([]);
   const [savedInsights, setSavedInsights] = useState([]);
 
   const handlePalmUpload = (file) => {
@@ -43,17 +43,6 @@ const Index = () => {
     };
     
     setPalmAnalysis(mockAnalysis);
-  };
-
-  const handleChatMessage = (message, response) => {
-    const newMessage = {
-      id: Date.now(),
-      user: message,
-      ai: response,
-      timeline: selectedTimeline,
-      timestamp: new Date()
-    };
-    setChatHistory(prev => [...prev, newMessage]);
   };
 
   const handleSaveInsight = (insight) => {
@@ -93,21 +82,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="mystic-gradient min-h-screen">
-        {/* Header with Sign Out button - Added proper spacing and positioning */}
-        <header className="relative z-50 w-full">
-          <div className="absolute top-6 right-6 md:top-8 md:right-8">
-            <Button
-              onClick={signOut}
-              variant="outline"
-              className="bg-white/10 border-white/20 text-white hover:bg-white/20 backdrop-blur-sm shadow-lg"
-            >
-              Sign Out
-            </Button>
-          </div>
-        </header>
-
-        {/* Main content with proper top padding to avoid overlap */}
-        <div className="pt-20 md:pt-24">
+        <MysticalNavbar onSignOut={signOut} />
+        
+        <div className="pt-20">
           <HeroSection onUploadClick={() => document.getElementById('palm-upload')?.scrollIntoView({ behavior: 'smooth' })} />
           
           <div id="palm-upload">
@@ -123,14 +100,8 @@ const Index = () => {
                 onTimelineSelect={setSelectedTimeline}
               />
               
-              <VoiceChatInterface 
-                selectedTimeline={selectedTimeline}
-                onMessage={handleChatMessage}
-                palmAnalysis={palmAnalysis}
-              />
-              
               <SaveReflectSection 
-                chatHistory={chatHistory}
+                chatHistory={[]}
                 savedInsights={savedInsights}
                 onSaveInsight={handleSaveInsight}
               />
