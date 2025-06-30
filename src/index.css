@@ -61,7 +61,7 @@
   }
 }
 
-/* Neon glow effects */
+/* Enhanced neon glow effects */
 @layer utilities {
   .neon-glow {
     box-shadow: 
@@ -76,7 +76,8 @@
       0 0 5px hsl(var(--neon-pink)),
       0 0 10px hsl(var(--neon-pink)),
       0 0 15px hsl(var(--neon-pink)),
-      0 0 20px hsl(var(--neon-pink));
+      0 0 20px hsl(var(--neon-pink)),
+      0 0 30px hsl(var(--neon-pink) / 0.5);
   }
   
   .neon-glow-blue {
@@ -198,6 +199,26 @@
   }
 }
 
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Animation classes */
 .animate-float {
   animation: float 6s ease-in-out infinite;
@@ -229,14 +250,23 @@
   animation: fade-in-up 0.8s ease-out forwards;
 }
 
+.animate-twinkle {
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 10s linear infinite;
+}
+
 /* Staggered animations */
 .animate-fade-in-up-1 { animation-delay: 0.2s; }
 .animate-fade-in-up-2 { animation-delay: 0.4s; }
 .animate-fade-in-up-3 { animation-delay: 0.6s; }
 .animate-fade-in-up-4 { animation-delay: 0.8s; }
 .animate-fade-in-up-5 { animation-delay: 1.0s; }
+.animate-fade-in-up-6 { animation-delay: 1.2s; }
 
-/* Cosmic background elements */
+/* Enhanced cosmic background elements */
 .cosmic-orb {
   position: absolute;
   border-radius: 50%;
@@ -246,16 +276,16 @@
 }
 
 .cosmic-orb-1 {
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   top: 10%;
   left: 10%;
   animation: float 8s ease-in-out infinite;
 }
 
 .cosmic-orb-2 {
-  width: 150px;
-  height: 150px;
+  width: 180px;
+  height: 180px;
   top: 60%;
   right: 15%;
   background: radial-gradient(circle, hsl(var(--neon-pink)) 0%, transparent 70%);
@@ -263,18 +293,40 @@
 }
 
 .cosmic-orb-3 {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   bottom: 20%;
   left: 30%;
   background: radial-gradient(circle, hsl(var(--neon-blue)) 0%, transparent 70%);
   animation: float 12s ease-in-out infinite;
 }
 
-/* Interactive hover effects */
-.mystical-card:hover {
-  transform: translateY(-10px);
+.cosmic-orb-4 {
+  width: 60px;
+  height: 60px;
+  top: 30%;
+  right: 40%;
+  background: radial-gradient(circle, hsl(var(--neon-gold)) 0%, transparent 70%);
+  animation: float 9s ease-in-out infinite;
+}
+
+.cosmic-orb-5 {
+  width: 140px;
+  height: 140px;
+  bottom: 40%;
+  right: 20%;
+  background: radial-gradient(circle, hsl(var(--neon-purple)) 0%, transparent 70%);
+  animation: float 11s ease-in-out infinite reverse;
+}
+
+/* Enhanced interactive hover effects */
+.mystical-card {
   transition: all 0.3s ease;
+}
+
+.mystical-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
 
 .mystical-button {
@@ -296,4 +348,11 @@
 
 .mystical-button:hover:before {
   left: 100%;
+}
+
+.mystical-button:hover {
+  box-shadow: 
+    0 0 20px hsl(var(--neon-pink)),
+    0 0 40px hsl(var(--neon-pink) / 0.5),
+    0 0 60px hsl(var(--neon-pink) / 0.3);
 }
