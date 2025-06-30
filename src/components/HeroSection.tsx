@@ -1,6 +1,6 @@
 
 import { Button } from '@/components/ui/button';
-import { Hand, Sparkles, Crystal } from 'lucide-react';
+import { Hand, Sparkles, Gem } from 'lucide-react';
 
 interface HeroSectionProps {
   onUploadClick: () => void;
@@ -51,9 +51,9 @@ const HeroSection = ({ onUploadClick }: HeroSectionProps) => {
         {/* Floating crystal ball */}
         <div className="mb-12 flex justify-center animate-fade-in-up-5">
           <div className="relative">
-            <Crystal className="w-24 h-24 text-neon-purple animate-float neon-glow" />
+            <Gem className="w-24 h-24 text-neon-purple animate-float neon-glow" />
             <div className="absolute inset-0 animate-pulse-glow">
-              <Crystal className="w-24 h-24 text-neon-pink opacity-50" />
+              <Gem className="w-24 h-24 text-neon-pink opacity-50" />
             </div>
           </div>
         </div>

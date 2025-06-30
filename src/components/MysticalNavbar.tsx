@@ -10,7 +10,7 @@ import {
   MessageCircle, 
   BookOpen, 
   Settings,
-  Crystal
+  Gem
 } from 'lucide-react';
 
 interface MysticalNavbarProps {
@@ -42,7 +42,7 @@ const MysticalNavbar = ({ onSignOut }: MysticalNavbarProps) => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center space-x-2">
-            <Crystal className="w-8 h-8 text-neon-purple animate-pulse-glow" />
+            <Gem className="w-8 h-8 text-neon-purple animate-pulse-glow" />
             <span className="mystical-title text-2xl font-bold text-neon-purple">
               ChronoMentor
             </span>
